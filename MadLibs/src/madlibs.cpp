@@ -15,13 +15,13 @@ int main() {
     int numStories = 0;
     int numTotalReplacements = 0;
     bool doMadlib = true;
+    cout << "Welcome to CS 106B Mad Libs!\nI will ask you to provide various words \nand phrases to fill in a story. \nAt the end, I will display your story to you.\n\n";
     while(doMadlib){
-        cout << "Welcome to CS 106B Mad Libs!\nI will ask you to provide various words \nand phrases to fill in a story. \nAt the end, I will display your story to you.\n\n";
         bool fileVerified = false;
         // Makes sure that the file exists before moving forward
         string fileName;
         while (!fileVerified){
-            fileName = getLine("Mad Lib input file?");
+            fileName = getLine("Mad Lib input file?"); // gets user input for file name
             if (!fileExists((fileName))){
                 cout << "Unable to open that file.  Try again.\n";
             }
@@ -62,6 +62,7 @@ int main() {
             }
             finalStory.append(line + "\n");
         }
+
         //Prints the madlib story
         cout << "\nYour Mad Lib story:\n";
         cout << finalStory;
@@ -81,14 +82,6 @@ int main() {
     double averageReplacements = numTotalReplacements/numStories;
     cout << "Mad Lib stories you created: " << numStories;
     cout << "\nTotal placeholders replaced: " << numTotalReplacements << " (" << averageReplacements << fixed << setprecision(1) << ")";
-
-
-
-
-
-    //    string text = readEntireFile(fileName);
-    //    cout << text;
-
 
     return 0;
 }
